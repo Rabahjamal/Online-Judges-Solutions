@@ -1,7 +1,6 @@
 /*
-Link to the problem: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=9
+Link to the problem: https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1575
 */
-
 
 #include <bits/stdc++.h>
 using namespace std;
