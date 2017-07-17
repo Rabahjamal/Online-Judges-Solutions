@@ -15,8 +15,6 @@ int a[31];
 int dp[31][5001][1001];
 
 int solve(int idx, int cost, int mn) {
-    if(cost > d)
-        return 0;
     if(idx >= v) {
         return (d-cost<mn?1:0);
     }
@@ -25,7 +23,7 @@ int solve(int idx, int cost, int mn) {
         return ret;
     int x1=solve(idx+1, cost, min(mn, a[idx]));
     int x2=0;
-    if(a[idx]<=1000)
+    if(a[idx]+cost<=d)
         x2=solve(idx+1, cost+a[idx], mn);
     return ret=x1+x2;
 }
@@ -36,12 +34,15 @@ int main()
     cin >> n;
     while(n--) {
         cin >> v >> d;
+        bool f=0;
         for(int i=0; i<v; i++) {
             cin >> a[i];
+            if(a[i]<=d)
+                f=1;
         }
         memset(dp, -1, sizeof dp);
         int ans=solve(0, 0, 1000);
-        cout << tst++ << " " << ans << "\n";
+        cout << tst++ << " " << (f?ans:0) << "\n";
     }
     return 0;
 }
